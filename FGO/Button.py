@@ -45,17 +45,18 @@ class OnBattle:
             p1 = BaseButton(Point(100, 410), Point(310, 630))
             p2 = BaseButton(Point(400, 410), Point(610, 630))
             p3 = BaseButton(Point(700, 410), Point(910, 630))
-            p4 = BaseButton(Point(900, 410), Point(1210, 630))
-            p5 = BaseButton(Point(1200, 410), Point(1510, 630))
-            p6 = BaseButton(Point(1500, 410), Point(1810, 630))
+            p4 = BaseButton(Point(1000, 410), Point(1210, 630))
+            p5 = BaseButton(Point(1300, 410), Point(1510, 630))
+            p6 = BaseButton(Point(1600, 410), Point(1810, 630))
             Change = BaseButton(Point(760, 900), Point(1160, 980))
 
 
 class WorkFlow:
-    GuanQia = BaseButton(Point(990, 290), Point(1800, 440))
+    GuanQia = BaseButton(Point(990, 290), Point(1400, 440))
     KaiShiRenWu = BaseButton(Point(1700, 970), Point(1860, 1050))
     DianJiHuaMian = BaseButton(Point(760, 880), Point(1160, 1040))
     XiaYiBu = BaseButton(Point(1470, 970), Point(1850, 1050))
 
     class Apple:
+        JueDing = BaseButton(Point(1120, 810), Point(1400, 880))
         Golden = BaseButton(Point(500, 400), Point(1400, 560))

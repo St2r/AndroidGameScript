@@ -36,6 +36,7 @@ class Region:
         """
         pos_x = random.random() * (self._point2.x - self._point1.x) + self._point1.x
         pos_y = random.random() * (self._point1.y - self._point2.y) + self._point2.y
+        print(pos_x, pos_y)
         return Point(pos_x, pos_y)
 
     @property

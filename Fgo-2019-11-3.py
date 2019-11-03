@@ -43,19 +43,10 @@ def one_battle():
                 Button.OnBattle.Card.Card2)
 
 
-# wait_appear(Asset.WorkFlow.ZhanDouJieGuo, 1)
-# while Asset.WorkFlow.ZhanDouJieGuo.match():
-#     AdbServer.tap(Button.WorkFlow.DianJiHuaMian.random_point)
-#     AdbServer.screen_cap()
-# while Asset.WorkFlow.XiaYiBu.match():
-#     AdbServer.tap(Button.WorkFlow.XiaYiBu)
-#     AdbServer.screen_cap()
-# AdbServer.wait_second(10)
-
-
 if __name__ == '__main__':
     AdbServer.start_server()
     while True:
         battle_start()
         choose_support()
         one_battle()
+        end_battle()

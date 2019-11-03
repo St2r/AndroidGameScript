@@ -19,6 +19,7 @@ def wait_action():
 
 def choose_card(card1: BaseButton, card2: BaseButton, card3: BaseButton):
     wait_action()
+    AdbServer.wait_second(0.2)  # 这个地方要加一点延迟，具体的原因我也不是很清楚
     Log.record('choosing cards')
     AdbServer.tap(Button.OnBattle.Attack.random_point)
     AdbServer.wait_second(1)
@@ -71,6 +72,19 @@ def check_ap() -> bool:
     if Asset.WorkFlow.ApNotEnough.match():
         Log.record('ApNotEnough')
         AdbServer.tap(Button.WorkFlow.Apple.Golden.random_point)
+        AdbServer.wait_second(0.5)
+        AdbServer.tap(Button.WorkFlow.Apple.JueDing.random_point)
         return False
     else:
         return True
+
+
+def end_battle():
+    wait_appear(Asset.WorkFlow.ZhanDouJieGuo, 1)
+    while Asset.WorkFlow.ZhanDouJieGuo.match():
+        AdbServer.tap(Button.WorkFlow.DianJiHuaMian.random_point)
+        AdbServer.screen_cap()
+    while Asset.WorkFlow.XiaYiBu.match():
+        AdbServer.tap(Button.WorkFlow.XiaYiBu.random_point)
+        AdbServer.screen_cap()
+    AdbServer.wait_second(10)

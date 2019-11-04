@@ -11,15 +11,15 @@ def wait_appear(asset, wait_time):
 
 def wait_action():
     AdbServer.screen_cap()
-    while not Asset.OnBattle.Attack.match(15):
+    while not Asset.OnBattle.Attack.match():
         Log.record('waiting...')
         AdbServer.wait_second(0.5)
         AdbServer.screen_cap()
+    AdbServer.wait_second(1)  # 这个地方要加一点延迟,否则会有BUG，具体的原因我也不是很清楚
 
 
 def choose_card(card1: BaseButton, card2: BaseButton, card3: BaseButton):
     wait_action()
-    AdbServer.wait_second(0.2)  # 这个地方要加一点延迟，具体的原因我也不是很清楚
     Log.record('choosing cards')
     AdbServer.tap(Button.OnBattle.Attack.random_point)
     AdbServer.wait_second(1)
@@ -36,7 +36,6 @@ def choose_card(card1: BaseButton, card2: BaseButton, card3: BaseButton):
 
 
 def servant_skill(skill: BaseButton, servant=Button.NullButton):
-    wait_action()
     wait_action()
     Log.record('servant_skill')
     AdbServer.tap(skill.random_point)
@@ -65,6 +64,7 @@ def change_servant(servant1: BaseButton, servant2: BaseButton):
     AdbServer.tap(servant2.random_point)
     AdbServer.wait_second(0.1)
     AdbServer.tap(Button.OnBattle.MasterMenu.Exchange.Change.random_point)
+    AdbServer.wait_second(5)
 
 
 def check_ap() -> bool:
